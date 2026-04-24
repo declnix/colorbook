@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <polygon points="100,16 122,70 182,70 134,106 152,164 100,128 48,164 66,106 18,70 78,70" fill="white" stroke="#222" stroke-width="3.5" stroke-linejoin="round"/>
+  <ellipse cx="86" cy="96" rx="6" ry="7" fill="#222"/>
+  <ellipse cx="114" cy="96" rx="6" ry="7" fill="#222"/>
+  <circle cx="88" cy="94" r="2" fill="white"/>
+  <circle cx="116" cy="94" r="2" fill="white"/>
+  <path d="M88 112 Q100 123 112 112" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <ellipse cx="74" cy="108" rx="7" ry="4" fill="#FFCDD2" opacity="0.6"/>
+  <ellipse cx="126" cy="108" rx="7" ry="4" fill="#FFCDD2" opacity="0.6"/>
+  <circle cx="40" cy="40" r="3" fill="none" stroke="#222" stroke-width="1.5"/>
+  <circle cx="160" cy="30" r="2.5" fill="none" stroke="#222" stroke-width="1.5"/>
+  <circle cx="170" cy="155" r="2" fill="none" stroke="#222" stroke-width="1.5"/>
+  <line x1="38" y1="24" x2="38" y2="32" stroke="#222" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="34" y1="28" x2="42" y2="28" stroke="#222" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="165" y1="18" x2="165" y2="24" stroke="#222" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="162" y1="21" x2="168" y2="21" stroke="#222" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
