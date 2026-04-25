@@ -15,12 +15,13 @@ export default function DrawPage() {
 
   const image = IMAGES.find((img) => img.id === id)
 
-  useCanvasDrawing(canvasRef, selectedColor, activeTool)
+  const { clearDrawing } = useCanvasDrawing(canvasRef, selectedColor, activeTool, id!)
 
   function clearCanvas() {
     const canvas = canvasRef.current
     if (!canvas) return
     canvas.getContext('2d')!.clearRect(0, 0, canvas.width, canvas.height)
+    clearDrawing()
   }
 
   if (!image) return <Navigate to="/" replace />
