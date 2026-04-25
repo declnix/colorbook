@@ -25,10 +25,10 @@ function qrPlugin() {
   }
 }
 
-export default defineConfig({
-  base: '/colorbook/',
+export default defineConfig(({ command }) => ({
+  base: command === 'serve' ? '/' : '/colorbook/',
   plugins: [tailwindcss(), react(), qrPlugin()],
   server: {
     host: true,
   }
-})
+}))
