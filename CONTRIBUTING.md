@@ -35,6 +35,22 @@ refactor(colorPicker): extract into standalone component
 chore: update dependencies
 ```
 
+## Adding coloring images
+
+Use the helper script to add a new image from picsvg.com:
+
+```
+./scripts/add-image.py '<picsvg-url>' <id> '<Polish label>'
+```
+
+The script handles download, viewBox crop, and `src/images.ts` registration.
+Each new image should be a separate commit with scope `images`:
+
+```
+feat(images): add lion coloring image
+chore(images): replace bear with updated version
+```
+
 ## Directory naming
 
 Page directories use `camelCase` starting with a lowercase letter (e.g. `drawPage/`, `selectionPage/`). Files co-located within a page directory are private to that page.
