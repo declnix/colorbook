@@ -28,11 +28,11 @@ export default function DrawPage() {
   return (
     <>
       <div className="fixed inset-0 bg-white z-[1] pointer-events-none" />
-      <div className="fixed inset-0 z-[2] flex items-center justify-center pointer-events-none">
+      <div className="fixed top-[4.75rem] bottom-[5.5rem] left-0 right-0 z-[2] flex items-center justify-center pointer-events-none">
         <img
           src={image.src}
           alt={image.label}
-          className="max-w-[min(75vw,68vh)] max-h-[min(75vw,68vh)] w-auto h-auto select-none pointer-events-none"
+          className="max-w-full max-h-full w-auto h-auto select-none pointer-events-none"
           draggable={false}
         />
       </div>
