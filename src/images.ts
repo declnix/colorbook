@@ -15,4 +15,5 @@ export const IMAGES: ColoringImage[] = [
   { id: 'rocket',    label: 'Rakieta',    src: '/colorbook/images/rocket.svg' },
   { id: 'icecream',  label: 'Lody',       src: '/colorbook/images/icecream.svg' },
   { id: 'boat',      label: 'Łódka',      src: '/colorbook/images/boat.svg' },
+  { id: 'dinosaur', label: 'Dinozaur',   src: '/colorbook/images/dinosaur.svg' },
 ]
