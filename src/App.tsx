@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
-import SelectionPage from './pages/SelectionPage'
-import DrawPage from './pages/DrawPage'
+import SelectionPage from './pages/selectionPage'
+import DrawPage from './pages/drawPage'
 
 export default function App() {
   return (

@@ -8,34 +8,31 @@ Format: `type(scope): message`
 
 | Type | When |
 |------|------|
-| `feat` | new aspect, program, host, or user |
-| `fix` | bug fix in configuration |
+| `feat` | new feature, component, or page |
+| `fix` | bug fix |
 | `refactor` | restructuring without behavior change |
 | `docs` | documentation, README, CLAUDE.md, CONTRIBUTING.md |
-| `chore` | `flake.lock` updates, housekeeping, renames |
+| `chore` | housekeeping, renames |
 
 ### Scopes
 
-- **Programs/aspects:** `niri`, `git`, `wsl`, `zsh`, `tmux`, `nvf`, `fonts`, `hjem`, `nix`, `podman`
-- **Hosts:** `z4c1sz3`, `bur34u`, `c4rg0x`
-- **Global:** `flake`, `den`, `hardware`
+Scope = name of the component, page, or file being changed (e.g. `drawPage`, `colorPicker`, `images`).
 
 Omit scope only for truly global commits (e.g. `init`).
 
-## Directory naming
-
-Directories that should sort first when listing are prefixed with `@` (e.g. `@z4c1sz3`, `@configurations`, `@users`). Use this prefix for important structural directories, not for every folder.
-
 ### Rules
 
-- Scope = name of the **host** when the change is host-specific, otherwise name of the aspect or file being changed
 - Message lowercase, no trailing period
 
 ### Examples
 
 ```
-feat(hjem): add hjem-impure with impure.enable by default
-fix(waybar): correct battery module format
-refactor(hjem): move hjem input to hjem-setup.nix
-chore(flake): update lock file
+feat(selectionPage): add image preview on hover
+fix(drawPage): prevent canvas resize from losing drawing
+refactor(colorPicker): extract into standalone component
+chore: update dependencies
 ```
+
+## Directory naming
+
+Page directories use `camelCase` starting with a lowercase letter (e.g. `drawPage/`, `selectionPage/`). Files co-located within a page directory are private to that page.
