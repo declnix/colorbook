@@ -42,9 +42,15 @@ export function useCanvasDrawing(
     if (!canvas) return
     const ctx = canvas.getContext('2d')!
     let drawing = false
+    let hasMoved = false
+    let downX = 0
+    let downY = 0
 
     function onPointerDown(e: PointerEvent) {
       drawing = true
+      hasMoved = false
+      downX = e.offsetX
+      downY = e.offsetY
       canvas!.setPointerCapture(e.pointerId)
       ctx.beginPath()
       ctx.moveTo(e.offsetX, e.offsetY)
@@ -52,6 +58,7 @@ export function useCanvasDrawing(
 
     function onPointerMove(e: PointerEvent) {
       if (!drawing) return
+      hasMoved = true
       if (activeTool === 'eraser') {
         ctx.globalCompositeOperation = 'destination-out'
         ctx.strokeStyle = 'rgba(0,0,0,1)'
@@ -70,6 +77,15 @@ export function useCanvasDrawing(
     }
 
     function onPointerUp() {
+      if (drawing && !hasMoved) {
+        // tap without drag — draw a dot
+        const size = activeTool === 'eraser' ? ERASER_SIZE : BRUSH_SIZE
+        ctx.globalCompositeOperation = activeTool === 'eraser' ? 'destination-out' : 'source-over'
+        ctx.fillStyle = activeTool === 'eraser' ? 'rgba(0,0,0,1)' : selectedColor
+        ctx.beginPath()
+        ctx.arc(downX, downY, size / 2, 0, Math.PI * 2)
+        ctx.fill()
+      }
       drawing = false
       ctx.closePath()
     }
