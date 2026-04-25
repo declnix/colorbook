@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import os from 'os'
+// @ts-ignore -- no types for qrcode-terminal
 import qrcode from 'qrcode-terminal'
 
 function qrPlugin() {

@@ -11,6 +11,8 @@ Format: `type(scope): message`
 | `feat` | new feature, component, or page |
 | `fix` | bug fix |
 | `refactor` | restructuring without behavior change |
+| `build` | build system, dependencies, bundler config |
+| `ci` | CI/CD pipeline and workflow files |
 | `docs` | documentation, README, CLAUDE.md, CONTRIBUTING.md |
 | `chore` | housekeeping, renames |
 
