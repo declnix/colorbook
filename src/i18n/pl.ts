@@ -1,0 +1,40 @@
+export default {
+  toolbar: {
+    back: 'Wróć',
+    brush: 'Pędzel',
+    eraser: 'Gumka',
+    clear: 'Wyczyść',
+  },
+  colorPicker: {
+    label: 'Kolory',
+  },
+  selectionPage: {
+    title: 'Wybierz obrazek do pokolorowania',
+    subtitle: 'Wybierz ulubiony obrazek i zacznij kolorować!',
+    footer: 'Stworzone z myślą o najmłodszych',
+  },
+  colors: {
+    red: 'Czerwony',
+    orange: 'Pomarańczowy',
+    yellow: 'Żółty',
+    green: 'Zielony',
+    blue: 'Niebieski',
+    lightBlue: 'Błękitny',
+    purple: 'Fioletowy',
+    pink: 'Różowy',
+    brown: 'Brązowy',
+    beige: 'Beżowy',
+    black: 'Czarny',
+    lavender: 'Lawendowy',
+  },
+  images: {
+    bear: 'Misio',
+    dog: 'Piesek',
+    penguin: 'Pingwinek',
+    cat: 'Kotek',
+    pig: 'Świnka',
+    giraffe: 'Żyrafa',
+    elephant: 'Słonik',
+    shark: 'Rekin',
+  },
+} as const

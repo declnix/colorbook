@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+
 type Props = {
   activeTool: 'brush' | 'eraser'
   onBack: () => void
@@ -6,12 +8,14 @@ type Props = {
 }
 
 export default function DrawToolbar({ activeTool, onBack, onToolToggle, onClear }: Props) {
+  const { t } = useTranslation()
+
   return (
     <div className="fixed top-3.5 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2.5 bg-white/90 backdrop-blur-[10px] rounded-full py-1.5 px-3.5 shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
       <button
         className="border-none bg-transparent text-xl cursor-pointer w-12 h-12 rounded-full flex items-center justify-center transition-[background] duration-[120ms] shrink-0 active:bg-black/7"
         onClick={onBack}
-        aria-label="Wróć"
+        aria-label={t('toolbar.back')}
       >
         ←
       </button>
@@ -19,7 +23,7 @@ export default function DrawToolbar({ activeTool, onBack, onToolToggle, onClear 
         <button
           className={`border-none p-0 cursor-pointer w-12 h-10 rounded-full flex items-center justify-center text-[1.15rem] transition-[background] duration-[150ms] shrink-0 active:bg-[#f8bbd0] ${activeTool === 'brush' ? 'bg-[#fce4ec]' : 'bg-transparent'}`}
           onClick={() => onToolToggle('brush')}
-          aria-label="Pędzel"
+          aria-label={t('toolbar.brush')}
           aria-pressed={activeTool === 'brush'}
         >
           {/* Lucide "brush" icon */}
@@ -32,7 +36,7 @@ export default function DrawToolbar({ activeTool, onBack, onToolToggle, onClear 
         <button
           className={`border-none p-0 cursor-pointer w-12 h-10 rounded-full flex items-center justify-center text-[1.15rem] transition-[background] duration-[150ms] shrink-0 active:bg-[#f8bbd0] ${activeTool === 'eraser' ? 'bg-[#fce4ec]' : 'bg-transparent'}`}
           onClick={() => onToolToggle('eraser')}
-          aria-label="Gumka"
+          aria-label={t('toolbar.eraser')}
           aria-pressed={activeTool === 'eraser'}
         >
           {/* Lucide "eraser" icon */}
@@ -45,7 +49,7 @@ export default function DrawToolbar({ activeTool, onBack, onToolToggle, onClear 
       <button
         className="border-none bg-transparent text-xl cursor-pointer w-12 h-12 rounded-full flex items-center justify-center transition-[background] duration-[120ms] shrink-0 active:bg-black/7"
         onClick={onClear}
-        aria-label="Wyczyść"
+        aria-label={t('toolbar.clear')}
       >
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M10 11v6"/>
