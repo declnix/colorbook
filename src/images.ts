@@ -5,5 +5,5 @@ export interface ColoringImage {
 }
 
 export const IMAGES: ColoringImage[] = [
-  { id: 'bear',     label: 'Misio',    src: `${import.meta.env.BASE_URL}images/bear.svg` },
+  { id: 'bear',     label: 'Misio',     src: `${import.meta.env.BASE_URL}images/bear.svg` },
 ]
