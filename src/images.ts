@@ -10,4 +10,5 @@ export const IMAGES: ColoringImage[] = [
   { id: 'penguin',  label: 'Pingwinek', src: `${import.meta.env.BASE_URL}images/penguin.svg` },
   { id: 'cat',      label: 'Kotek',     src: `${import.meta.env.BASE_URL}images/cat.svg` },
   { id: 'pig',      label: 'Świnka',    src: `${import.meta.env.BASE_URL}images/pig.svg` },
+  { id: 'giraffe',  label: 'Żyrafa',    src: `${import.meta.env.BASE_URL}images/giraffe.svg` },
 ]
