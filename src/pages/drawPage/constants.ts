@@ -13,5 +13,10 @@ export const COLORS = [
   { hex: '#CE93D8', id: 'lavender' },
 ] as const
 
-export const BRUSH_SIZE = 18
-export const ERASER_SIZE = 36
+export const TARGET_LONG_EDGE = 1024
+
+export const BRUSH_RADIUS_IMG = 24
+export const ERASER_RADIUS_IMG = 48
+
+export const BORDER_LUMINANCE_THRESHOLD = 128
+export const BORDER_ALPHA_THRESHOLD = 32

@@ -2,48 +2,65 @@ import { useRef, useState } from 'react'
 import { useParams, useNavigate, Navigate } from 'react-router-dom'
 import { IMAGES } from '../../images'
 import { COLORS } from './constants'
-import { useCanvasDrawing } from './useCanvasDrawing'
+import { useColoringImage } from './useColoringImage'
+import { useDrawingCanvas } from './useDrawingCanvas'
+import { useFitContainer } from './useFitContainer'
 import DrawToolbar from './DrawToolbar'
 import ColorPicker from './ColorPicker'
+import type { Tool } from './types'
 
 export default function DrawPage() {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const fitAreaRef = useRef<HTMLDivElement>(null)
   const [selectedColor, setSelectedColor] = useState<string>('#E53935')
-  const [activeTool, setActiveTool] = useState<'brush' | 'eraser'>('brush')
+  const [activeTool, setActiveTool] = useState<Tool>('brush')
 
   const image = IMAGES.find((img) => img.id === id)
-
-  const { clearDrawing } = useCanvasDrawing(canvasRef, selectedColor, activeTool, id!)
-
-  function clearCanvas() {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    canvas.getContext('2d')!.clearRect(0, 0, canvas.width, canvas.height)
-    clearDrawing()
-  }
+  const { imageSize, regionMap } = useColoringImage(id ?? '')
+  const fit = useFitContainer(fitAreaRef, imageSize)
+  const { clearDrawing } = useDrawingCanvas({
+    canvasRef,
+    imageId: id ?? '',
+    imageSize,
+    regionMap,
+    selectedColor,
+    activeTool,
+  })
 
   if (!image) return <Navigate to="/" replace />
 
   return (
-    <>
-      <div className="fixed inset-0 bg-white z-[1] pointer-events-none" />
-      <div className="fixed top-[4.75rem] bottom-[5.5rem] left-0 right-0 z-[2] flex items-center justify-center pointer-events-none">
-        <img
-          src={image.src}
-          alt={image.label}
-          className="max-w-full max-h-full w-auto h-auto select-none pointer-events-none"
-          draggable={false}
-        />
+    <div className="fixed inset-0">
+      <div
+        ref={fitAreaRef}
+        className="fixed top-[4.75rem] bottom-[5.5rem] left-0 right-0 flex items-center justify-center"
+      >
+        {imageSize && (
+          <div
+            className="relative"
+            style={{ width: fit?.width ?? 0, height: fit?.height ?? 0 }}
+          >
+            <img
+              src={image.src}
+              alt={image.label}
+              className="absolute inset-0 w-full h-full pointer-events-none select-none"
+              draggable={false}
+            />
+            <canvas
+              ref={canvasRef}
+              className="absolute inset-0 w-full h-full touch-none cursor-crosshair"
+            />
+          </div>
+        )}
       </div>
-      <canvas ref={canvasRef} className="fixed inset-0 z-[3] touch-none cursor-crosshair" />
 
       <DrawToolbar
         activeTool={activeTool}
         onBack={() => navigate('/')}
         onToolToggle={setActiveTool}
-        onClear={clearCanvas}
+        onClear={clearDrawing}
       />
 
       <ColorPicker
@@ -52,6 +69,6 @@ export default function DrawPage() {
         activeTool={activeTool}
         onSelect={(hex) => { setSelectedColor(hex); setActiveTool('brush') }}
       />
-    </>
+    </div>
   )
 }
